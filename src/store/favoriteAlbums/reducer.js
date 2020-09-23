@@ -6,11 +6,11 @@ const initialStore = () => ({
 });
 
 const addToFavorites = (store, album) => {
-  const { favoritesArray } = store;
-  let { favoritesNormalized } = store;
-  favoritesArray.concat(album);
+  let { favoritesNormalized, favoritesArray } = store;
+  favoritesArray = favoritesArray.concat(album);
   favoritesNormalized = { ...favoritesNormalized, [album.id]: album };
-  return { favoritesArray, favoritesNormalized };
+  const result = { favoritesArray, favoritesNormalized };
+  return result;
 };
 
 const removeFromFavorites = (store, album) => {

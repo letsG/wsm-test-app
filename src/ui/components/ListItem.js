@@ -26,7 +26,7 @@ const ListItem = ({
     });
   };
   return (
-    <Card>
+    <Card className="listItem">
       <CardContent>
         <Typography gutterBottom>
           {albumName} by {artistName}

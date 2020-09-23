@@ -13,6 +13,7 @@ const SearchInput = ({ onSubmit, onChange, onReset, value }) => {
     <TextField
       value={value}
       onChange={onChange}
+      className="searchInput grow"
       onKeyPress={handleEnterKey}
       InputProps={{
         startAdornment: (
