@@ -12,7 +12,7 @@ import StarBorder from "@material-ui/icons/StarBorder";
 
 function App() {
   const dispatch = useDispatch();
-  const [favoritesView, setFavoritesView] = useState(false);
+  const [favoritesView, setFavoritesView] = useState(true);
   const [searchValue, setSearchValue] = useState("");
 
   const favoritesViewToggle = () => setFavoritesView(!favoritesView);
