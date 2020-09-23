@@ -12,7 +12,8 @@ export default (store = initialStore(), { type, data, total, offset } = {}) => {
       return {
         ...store,
         searchedAlbumsArray: data,
-        total: total,
+        total,
+        offset,
       };
     default:
       return store;

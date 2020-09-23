@@ -6,7 +6,6 @@ const { selectAlbums, selectFavorites } = require("utils/selectors");
 const AlbumsList = () => {
   const { searchedAlbumsArray = [] } = useSelector(selectAlbums);
   const { favoritesNormalized = {} } = useSelector(selectFavorites);
-  // const [page, setPage]
   return searchedAlbumsArray.map((album) => {
     const { id: albumId } = album;
     const favorite = !!favoritesNormalized[albumId];

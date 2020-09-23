@@ -1,21 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import { TextField, InputAdornment, IconButton } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import Close from "@material-ui/icons/Close";
 
-const SearchInput = ({ onSubmit }) => {
-  const [value, setValue] = useState("Дом с нормальными");
-  const resetValue = () => setValue("");
-  const onChangeInputValue = ({ target: { value } }) => setValue(value);
+const SearchInput = ({ onSubmit, onChange, onReset, value }) => {
   const handleEnterKey = (e) => {
     if (e.key === "Enter") {
-      onSubmit(value);
+      onSubmit();
     }
   };
   return (
     <TextField
       value={value}
-      onChange={onChangeInputValue}
+      onChange={onChange}
       onKeyPress={handleEnterKey}
       InputProps={{
         startAdornment: (
@@ -25,7 +22,7 @@ const SearchInput = ({ onSubmit }) => {
         ),
         endAdornment: value && (
           <InputAdornment position="start">
-            <IconButton onClick={resetValue}>
+            <IconButton onClick={onReset}>
               <Close />
             </IconButton>
           </InputAdornment>
