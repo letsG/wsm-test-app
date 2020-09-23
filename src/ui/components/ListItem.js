@@ -10,13 +10,12 @@ import {
 import { Card, CardContent, Typography, CardActions } from "@material-ui/core";
 const defaultTitle = "Unknown";
 const ListItem = ({
-  data: {
-    title: albumName = defaultTitle,
-    "release-group": { title: groupName = defaultTitle },
-  },
+  data: { title: albumName = defaultTitle, "artist-credit": artistsArray },
   data: albumData,
   favorite = false,
 }) => {
+  const mainArtist = artistsArray[0];
+  const { name: artistName } = mainArtist;
   const dispatch = useDispatch();
   const Icon = favorite ? Star : StarBorder;
   const onStarClick = () => {
@@ -30,7 +29,7 @@ const ListItem = ({
     <Card>
       <CardContent>
         <Typography gutterBottom>
-          {albumName} by {groupName}
+          {albumName} by {artistName}
         </Typography>
         <CardActions>
           <IconButton onClick={onStarClick} aria-label="Favorite">
